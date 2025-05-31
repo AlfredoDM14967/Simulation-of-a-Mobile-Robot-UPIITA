@@ -1,0 +1,294 @@
+BoxLayout:
+    canvas.before:
+        Color:
+            rgba: (0.05,0.08,0.12,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    orientation: "horizontal"
+
+    FloatLayout:
+        MDLabel:
+            id: wl_label # ID para actualizar la velocidad de las ruedas izquierdas
+            text: "WL: 0.0"
+            color: 1,0.8,0.8
+            font_size: 19
+            pos_hint: {"center_x": 0.7, "center_y": 0.81}
+        MDLabel:
+            id: wr_label # ID para actualizar la velocidad de las ruedas derechas
+            text: "WR: 0.0"
+            color: 1,0.8,0.8
+            font_size: 19
+            pos_hint: {"center_x": 0.7, "center_y": 0.71}
+        MDLabel:
+            id: velocidad_label # ID para actualizar la velocidad del robot
+            text: "Velocidad: 0.0"
+            color: 1,0.8,0.8
+            font_size: 19
+            pos_hint: {"center_x": 0.7, "center_y": 0.61}
+        MDLabel:
+            id: v_label # ID para actualizar el voltaje de la bateria
+            text: "Voltaje: 0.0"
+            color: 1,0.8,0.8
+            font_size: 19
+            pos_hint: {"center_x": 0.7, "center_y": 0.51}
+
+        #MDRaisedButton:
+        #    style: "elevated"
+        #    text: "35%"
+        #    size_hint: .21,.12
+        #    md_bg_color: 0.5,0.1,0.1
+        #    shadow_color: "red"
+        #    pos_hint: {"center_x": 0.35,"center_y": 0.7}
+        #    on_press: app.SetVel(1.393)
+        
+        #MDRaisedButton:
+        #    style: "elevated"
+        #    text: "70%"
+        #    size_hint: .21,.12
+        #    md_bg_color: 0.7,0.7,0.1
+        #    shadow_color: 0.9,0.9,0.2
+        #    pos_hint: {"center_x": 0.60,"center_y": 0.7}
+        #    on_press: app.SetVel(2.786)
+        
+        #MDRaisedButton:
+        #    style: "elevated"
+        #    text: "100%"
+        #    md_bg_color: 0.1,0.85,0.1
+        #    shadow_color: 0.2,0.98,0.2
+        #    size_hint: .21,.12
+        #    pos_hint: {"center_x": 0.35,"center_y": 0.55}
+        #    on_press: app.SetVel(3.979)
+
+        #################################################
+        MDLabel: 
+            text: "Modo"
+            color: 1,0.95,0.8
+            font_size: 20
+            halign: "center"
+            pos_hint: {"center_x": 0.5,"center_y": 0.4}
+
+        MDRaisedButton:
+            style: "elevated"
+            text: "Automatico"
+            size_hint: .21,.12
+            shadow_color: 0.1,0.5,1
+            font_size: 9
+            pos_hint: {"center_x": 0.35,"center_y": 0.28}
+            on_press: app.SetMode("A")
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Diagnostico"
+            size_hint: .21,.12
+            shadow_color: 0.1,0.5,1
+            font_size: 9
+            pos_hint: {"center_x": 0.60,"center_y": 0.28}
+            on_press: app.SetMode("D")
+
+        MDRaisedButton:
+            style: "elevated"
+            text: "Manual"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.35,"center_y": 0.13}
+            on_press: app.SetMode("M")
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Paro"
+            md_bg_color: "red"
+            shadow_color: "red"
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.60,"center_y": 0.13}
+            on_press: app.Paro(*args)
+    ####################################################
+    FloatLayout:
+        MDLabel:
+            text: "Robot Movil"
+            color: 128/255,0,64/255
+            font_size: 30
+            pos_hint: {"center_x": 0.83,"center_y": 0.87}
+        
+        MDLabel:
+            text: "Posicion Global:"
+            color: 1,0.8,0.8
+            font_size: 17
+            pos_hint: {"center_x": 0.5,"center_y": 0.75}
+
+        MDLabel:
+            id : Pos_AcLat
+            text: "Lat: 00.000000"
+            color: 0.8,1,0.9
+            font_size: 17
+            pos_hint: {"center_x": 0.5,"center_y": 0.7}
+        
+        MDLabel:
+            id : Pos_AcLon
+            text: "Lon: 00.000000"
+            color: 0.8,1,0.9
+            font_size: 17
+            pos_hint: {"center_x": 0.5,"center_y": 0.65}
+        
+        MDLabel:
+            id : Or_Ac
+            text: "Orientacion: 00.000000"
+            color: 0.8,1,0.9
+            font_size: 17
+            pos_hint: {"center_x": 0.5,"center_y": 0.60}
+
+        MDLabel:
+            text: "Posicion Final:"
+            color: 1,0.8,0.8
+            font_size: 17
+            pos_hint: {"center_x": 1.15,"center_y": 0.75}
+
+        MDLabel:
+            text: "Lat :"
+            color: 0.8,1,0.9
+            font_size: 17
+            pos_hint: {"center_x": 1.15,"center_y": 0.7}
+
+        TextInput:
+            id: Lat_F
+            size_hint: None, None
+            size: 117, 30
+            pos_hint: {"center_x": 0.793,"center_y": 0.7}
+            text: ""
+            font_size: 17
+            multiline: False
+        
+        MDLabel:
+            text: "Lon:"
+            color: 0.8,1,0.9
+            font_size: 17
+            pos_hint: {"center_x": 1.15,"center_y": 0.65}
+        
+        TextInput:
+            id: Lon_F
+            size_hint: None, None
+            size: 117, 30
+            pos_hint: {"center_x": 0.793,"center_y": 0.65}
+            text: ""
+            font_size: 17
+            multiline: False
+
+        MDLabel:
+            text: "Video En Vivo"
+            color: 1,0.77,0.77
+            font_size: 19
+            pos_hint: {"center_x": 0.9, "center_y": 0.55}
+
+        Image:
+            source: '/ros_ws/IPN.png'  # Reemplaza con la ruta de tu imagen
+            size_hint: None, None
+            size: 280, 280  # Ajusta el tamano de la imagen
+            pos_hint: {"center_x": 0.0,"center_y": 0.88}
+        
+        Image:
+            source: '/ros_ws/UPIITA.png'  # Reemplaza con la ruta de tu imagen
+            size_hint: None, None
+            size: 120, 120  # Ajusta el tamano de la imagen
+            pos_hint: {"center_x": 0.85,"center_y": 0.88}
+
+        Image:
+            id: video_feed  # ID para actualizar la textura con OpenCV
+            size_hint: None, None
+            size: 640, 480  # Tamano del video
+            pos_hint: {"center_x": 0.5, "center_y": 0.25}
+
+    #################################################
+    FloatLayout:
+        MDLabel:
+            text: "Control Manual"
+            color: 1,0.77,0.77
+            font_size: 19
+            pos_hint: {"center_x": 0.93, "center_y": 0.51}
+
+        MDRaisedButton:
+            style: "elevated"
+            text: "Avanzar"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.55,"center_y": 0.4}
+            on_press: app.Avanzar_rover(*args)
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Detener"
+            size_hint: .21,.12
+            md_bg_color: "red"
+            shadow_color: "red"
+            pos_hint: {"center_x": 0.55,"center_y": 0.25}
+            on_press: app.Detener_rover(*args)
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Izquierda"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.3,"center_y": 0.25}
+            on_press: app.Izquierda_rover(*args)
+
+        MDRaisedButton:
+            style: "elevated"
+            text: "Derecha"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.8,"center_y": 0.25}
+            on_press: app.Derecha_rover(*args)
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Retroceder"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.55,"center_y": 0.1}
+            on_press: app.Retroceder_rover(*args)
+        
+        #MDRaisedButton:
+        #    style: "elevated"
+        #    text: "Calibrar"
+        #    shadow_color: 0.1,0.5,1
+        #    size_hint: .21,.12
+        #    pos_hint: {"center_x": 0.3,"center_y": 0.1}
+        #    on_press: app.SetMode("Calibrar")
+
+        MDRaisedButton:
+            style: "elevated"
+            text: "Giro D"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.8,"center_y": 0.1}
+            on_press: app.GiroD_rover(*args)
+        
+        MDRaisedButton:
+            style: "elevated"
+            text: "Giro I"
+            shadow_color: 0.1,0.5,1
+            size_hint: .21,.12
+            pos_hint: {"center_x": 0.3,"center_y": 0.4}
+            on_press: app.GiroI_rover(*args)
+        
+        MDLabel: 
+            text: "Establecer Velocidad"
+            color: 1,0.95,0.8
+            font_size: 20
+            halign: "center"
+            pos_hint: {"center_x": 0.5,"center_y": 0.69}
+        
+        Label:
+            text: str(velocidad_m.value) + "%"
+            color: 1,0.77,0.77
+            font_size: 20
+            pos_hint: {"center_x": 0.5,"center_y": 0.64}
+
+        Slider:
+            id: velocidad_m #Slider para controlar la velocidad de los motores
+            min: 30
+            max: 100
+            step: 2
+            orientation: 'horizontal'
+            pos_hint: {"center_x": 0.55,"center_y": 0.6}
+            size_hint: .78,0.1
+            on_touch_move: app.SetVel()

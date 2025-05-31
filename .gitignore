@@ -1,0 +1,8 @@
+#Ignore all the files in the Install, build, kivy, log, .vscode, resource and test directories
+build/
+install/
+kivy/
+log/
+.vscode/
+resource/
+test/

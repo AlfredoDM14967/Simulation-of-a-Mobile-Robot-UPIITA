@@ -1,0 +1,32 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    simple_velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+    simple_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+
+simple_velocity_controller:
+  ros__parameters:
+    joints:
+      - Rueda1_Joint
+      - Rueda2_Joint
+      - Rueda3_Joint
+      - Rueda4_Joint
+      - Rueda5_Joint
+      - Rueda6_Joint
+
+simple_position_controller:
+  ros__parameters:
+    joints:
+      - DirFronIzq_Joint
+      - DirTrasIzq_Joint
+      - DirDerFron_Joint
+      - DirDerTras_Joint

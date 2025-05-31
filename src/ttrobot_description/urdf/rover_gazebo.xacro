@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://wwww.ros.org/wiki/xacro" name="ttrobot">
+
+    <transmission name="rueda1_Dir">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda1_Dir_motor" role="actuador_Dir_rueda1"/>
+        <joint name="DirFronIzq_Joint" role="joint_DirR1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda5_Dir">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda5_Dir_motor" role="actuador_Dir_rueda5"/>
+        <joint name="DirTrasIzq_Joint" role="joint_DirR5">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda2_Dir">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda2_Dir_motor" role="actuador_Dir_rueda2"/>
+        <joint name="DirDerFron_Joint" role="joint_DirR2">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda6_Dir">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda6_Dir_motor" role="actuador_Dir_rueda6"/>
+        <joint name="DirDerTras_Joint" role="joint_DirR6">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda1_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda1_traccion_motor" role="actuador_trac_r1"/>
+        <joint name="Rueda1_Joint" role="joint_tracR1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda2_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda2_traccion_motor" role="actuador_trac_r2"/>
+        <joint name="Rueda2_Joint" role="joint_tracR2">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda3_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda3_traccion_motor" role="actuador_trac_r3"/>
+        <joint name="Rueda3_Joint" role="joint_tracR3">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda4_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda4_traccion_motor" role="actuador_trac_r4"/>
+        <joint name="Rueda4_Joint" role="joint_tracR4">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda5_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda5_traccion_motor" role="actuador_trac_r5"/>
+        <joint name="Rueda5_Joint" role="joint_tracR5">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <transmission name="rueda6_traccion">
+        <plugin>tansmission_interface/SimpleTransmission</plugin>
+        <actuator name="rueda6_traccion_motor" role="actuador_trac_r6"/>
+        <joint name="Rueda6_Joint" role="joint_tracR6">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <gazebo reference="base_link">
+        <mu1>0.1</mu1>
+        <mu2>0.1</mu2>
+        <kp>1000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+    </gazebo>
+
+    <gazebo reference="DirFronIzq_Link">
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>0 0 1</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda1_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda3_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo reference="DirTrasIzq_Link">
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>0 0 1</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda5_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo reference="DirDerFron_Link">
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>0 0 1</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda2_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda4_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo reference="DirDerTras_Link">
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>0 0 1</fdirl>
+    </gazebo>
+
+    <gazebo reference="Rueda6_Link">
+        <!-- <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2> -->
+        <mu1>100000000000000.0</mu1>
+        <mu2>100000000000000.0</mu2>
+        <kp>1000000000000.0</kp>
+        <kd>1.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.1</maxVel>
+        <fdirl>1 1 0</fdirl>
+    </gazebo>
+
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <parameters>$(find ttrobot_controller)/config/ttrobot_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+</robot>
